@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  unicode-bidi: plaintext;
+}
+
+body {
+  font-family: Poppins, Beiruti, Zain, Segoe UI, Ubuntu, monospace;
+  min-width: 380px;
+}
+
+header,
+footer {
+  padding: 1rem;
+  text-align: center;
+}
+
+header,
+footer {
+  background: linear-gradient(
+    to bottom right,
+    rgba(231, 240, 255),
+    #fff,
+    rgb(231, 240, 255)
+  );
+  /* background: linear-gradient(to bottom right, #85EAFD55, #fff, #85EAFD55); */
+}
+
+img {
+  width: 48px;
+  display: inline-block;
+  margin: 0.25rem;
+}
+
+.ext-name {
+  letter-spacing: 1px;
+}
+
+/* header ended */
+
+.container {
+  padding: 1rem;
+}
+
+article {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  place-items: center;
+}
+
+.title {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background: linear-gradient(to right, rgb(231, 240, 255), #fff);
+  border-radius: 3pt;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+}
+
+.btn:not(:last-of-type) {
+  flex-grow: 1;
+}
+
+.btn {
+  cursor: pointer;
+
+  letter-spacing: 0.6px;
+  padding: 0.65rem 0.75rem;
+  border: none;
+  border-radius: 6pt;
+  --shadow-color: #e4e5e6;
+  box-shadow: 0 0 3px var(--shadow-color) inset;
+
+  color: transparent;
+  background: var(--bg);
+  background-clip: text;
+}
+
+.btn.filled,
+.btn:hover {
+  background: var(--bg);
+  color: var(--color);
+  box-shadow: none;
+}
+
+.btn:active {
+  animation: animateBg 0.15s linear;
+}
+
+@keyframes animateBg {
+  0%,
+  100% {
+    background: var(--bg);
+    color: var(--color);
+  }
+
+  50% {
+    background: transparent;
+    color: var(--bg);
+  }
+}
+
+#poe {
+  --color: #fff;
+  --bg: #181818;
+}
+
+#linkedin {
+  --color: #fff;
+  --bg: #0a66c2;
+}
+
+#gemini {
+  --color: #fff;
+  --bg: linear-gradient(74deg, #4285f4, #9b72cb, #d96570);
+}
+
+#chatgpt {
+  --color: #fff;
+  --bg: #212121;
+}
+
+#brave {
+  --color: #fff;
+  --bg: #ff2000;
+}
+
+#duckduckgo {
+  --color: #fff;
+  --bg: #de5833;
+}
+
+#stackoverflow {
+  --color: #fff;
+  --bg: #f7a664;
+}
+
+#medium {
+  --color: #fff;
+  --bg: #242424;
+}

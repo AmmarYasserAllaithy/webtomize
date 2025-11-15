@@ -1,0 +1,196 @@
+_all {
+  pre,
+  code {
+    font-family: Fira Code, monospace;
+  }
+}
+
+_router {
+  div#maincenter {
+    width: 100% !important;
+    max-width: 1280px !important;
+    margin: 1rem auto !important;
+    overflow: auto;
+  }
+
+  div#content {
+    float: none !important;
+    display: flex;
+  }
+
+  .AspWidth {
+    width: 100% !important;
+  }
+
+  .menuContentActive,
+  .menuContTitleActive,
+  .SecondMenuTitleActive {
+    background: #6f2d91 !important;
+    color: white !important;
+  }
+
+  #Password {
+    background: red !important;
+  }
+}
+
+poe.com {
+  .ChatMessagesView_emptyView__HqDf7,
+  .ChatMessagesView_infiniteScroll__vk3VX {
+    width: 90%;
+  }
+
+  .Message_leftSideMessageBubble__VPdk6 {
+    min-width: fit-content;
+  }
+
+  div.Markdown_markdownContainer__Tz3HQ {
+    color: #ddd !important;
+  }
+
+  div.Markdown_markdownContainer__Tz3HQ :is(h3, h4, strong) {
+    color: rgb(32, 184, 126);
+    // color: rgb(131, 171, 235);
+    letter-spacing: 0.35px;
+  }
+
+  div.Markdown_markdownContainer__Tz3HQ code {
+    color: #ccc;
+    background: #181818;
+    padding: 2px 4px;
+    letter-spacing: 0.15px;
+  }
+}
+
+chat.deepseek.com {
+  p {
+    color: #ddd !important;
+  }
+
+  :is(h3, h4, strong) {
+    color: #8ab4f8;
+    letter-spacing: 0.35px;
+  }
+}
+
+gemini.google.com {
+  .conversation-container {
+    max-width: 75vw !important;
+  }
+
+  user-query {
+    padding: 1.5rem !important;
+    border-radius: 1rem;
+  }
+
+  .dark-theme user-query {
+    background: #4fa0ff55;
+  }
+
+  .light-theme user-query {
+    background: #d3e3fd;
+  }
+}
+
+chatgpt.com {
+  .mx-auto.flex.flex-1.gap-4.text-base {
+    max-width: 75vw;
+  }
+}
+
+www.linkedin.com {
+  * {
+    unicode-bidi: plaintext;
+  }
+
+  .scaffold-layout__row.scaffold-layout__content.scaffold-layout__content--list-detail-aside.scaffold-layout__content--has-aside {
+    display: block !important;
+  }
+
+  main#main {
+    min-height: 99vh;
+  }
+
+  .scaffold-layout__detail.msg__detail {
+    flex: 4;
+  }
+
+  /* Learning player */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #40464b;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #8b9298;
+    border-radius: 6px;
+    border: 2px solid #40464b;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #90969b;
+  }
+
+  .classroom-toc-section {
+    border: none !important;
+  }
+
+  .classroom-toc-section h2 button {
+    letter-spacing: 0.05rem;
+    border: none;
+    background: #0a66c277;
+    margin-top: 1rem;
+  }
+
+  li.classroom-toc-item {
+    background: #fff1;
+    margin: 0.33rem;
+  }
+
+  li.classroom-toc-item.classroom-toc-item--selected {
+    background: rgba(235, 235, 50, 0.2);
+  }
+
+  svg.classroom-toc-item__completed-icon + div div.classroom-toc-item__title {
+    color: #b5d99f;
+  }
+
+  /* div.classroom-toc-item__viewing-status--in-progress + div div.classroom-toc-item__title { color: gold; } */
+  div.classroom-layout__stage.classroom-layout__stage--large {
+    min-height: 620px;
+  }
+}
+
+developer.android.com {
+  body.viewport--desktop.tenant--android.color-scheme--dark {
+    --devsite-background-1: #252726;
+  }
+}
+
+mostaql.com {
+  .card--title a {
+    font-weight: bold;
+    font-family: Poppins, inherit, IBM Plex Sans Arabic;
+  }
+
+  .projects-table .project-row:nth-child(even) {
+    background: #f5f6f7;
+  }
+
+  .bids-total {
+    display: inline-block;
+    margin: 1rem;
+    color: white;
+    background: var(--cc-btn-primary-hover-bg);
+    border-radius: 4pt;
+  }
+}
+
+claude.ai {
+  .font-claude-response {
+    font-family: IBM Plex Sans Arabic !important;
+  }
+}
