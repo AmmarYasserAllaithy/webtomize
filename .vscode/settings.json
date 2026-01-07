@@ -2,5 +2,9 @@
   "prettier.tabWidth": 2,
   "prettier.semi": false,
   "prettier.singleQuote": true,
+  "prettier.endOfLine": "auto",
+  "prettier.arrowParens": "avoid",
+  "prettier.trailingComma": "es5",
+  "prettier.printWidth": 88,
   "prettier.singleAttributePerLine": true
 }
