@@ -101,6 +101,7 @@ chatgpt.com {
 www.linkedin.com {
   * {
     unicode-bidi: plaintext;
+    font-family: 'IBM Plex Sans Arabic', sans-serif !important;
   }
 
   .scaffold-layout__row.scaffold-layout__content.scaffold-layout__content--list-detail-aside.scaffold-layout__content--has-aside {
@@ -190,7 +191,9 @@ mostaql.com {
 }
 
 claude.ai {
-  .font-claude-response {
-    font-family: IBM Plex Sans Arabic !important;
+  .font-claude-response,
+  .font-claude-response-title,
+  .font-claude-response-body {
+    font-family: 'IBM Plex Sans Arabic' !important;
   }
 }
