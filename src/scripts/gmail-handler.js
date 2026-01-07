@@ -1,59 +1,55 @@
+const EMAIL_TEMPLATE_URL = chrome.runtime.getURL('/assets/html/email-body.html')
 
-const url = chrome.runtime.getURL('/assets/html/email-body.html')
+//
 
-setTimeout(() => setupGmailComposer(url), 1000)
+setTimeout(() => setupGmailComposer(), 1000)
 
+//
 
-async function fetchContent(url) {
-  const response = await fetch(url)
-
-  return await response.text()
-}
-
-
-const setupGmailComposer = (url) => {
-
-  const composeButton = document.querySelector("body > div > div.nH.a4O > div > div.nH.aqk.aql.bkL > div.aeN.WR.baA.nH.oy8Mbf > div.aic > div > div")
+const setupGmailComposer = () => {
+  const composeButton = document.querySelector(
+    'body > div > div.nH.a4O > div > div.nH.aqk.aql.bkL > div.aeN.WR.baA.nH.oy8Mbf > div.aic > div > div'
+  )
 
   if (!composeButton) return
 
   composeButton.textContent += '!'
-
-  composeButton.addEventListener('click', e => {
-
-    setTimeout(() => {
-
-      const allComposers = document.querySelectorAll("div.aO7 > div.Am.aiL.Al.editable.LW-avf.tS-tW")
-      const currentComposer = allComposers[allComposers.length - 1]
-
-      liveUpdateContent(currentComposer, url)
-
-    }, 1000)
-
-  })
-
+  composeButton.addEventListener('click', handleComposeButtonClick)
 }
 
+//
+
+const handleComposeButtonClick = () => {
+  setTimeout(() => {
+    const allComposers = document.querySelectorAll(
+      'div.aO7 > div.Am.aiL.Al.editable.LW-avf.tS-tW'
+    )
+    const currentComposer = allComposers[allComposers.length - 1]
+
+    updateComposerContentPeriodically(currentComposer)
+  }, 1000)
+}
+
+//
 
 let intervalId
 
-const liveUpdateContent = (composer, url, millis = 1000) => {
+const updateComposerContentPeriodically = (composer, millis = 1000) => {
+  const updateComposerContent = async () => {
+    if (composer.checkVisibility()) {
+      composer.innerHTML = await fetchEmailContent()
+    } else {
+      clearInterval(intervalId)
+      console.log('Interval Cleared!')
+    }
+  }
 
-  intervalId = setInterval(
-    async () => {
+  intervalId = setInterval(updateComposerContent, millis)
+}
 
-      if (composer.checkVisibility())
+//
 
-        composer.innerHTML = await fetchContent(url)
-
-      else {
-        clearInterval(intervalId)
-
-        console.log("Interval Cleared!")
-      }
-
-    },
-    millis
-  )
-
+const fetchEmailContent = async () => {
+  const response = await fetch(EMAIL_TEMPLATE_URL)
+  return await response.text()
 }
