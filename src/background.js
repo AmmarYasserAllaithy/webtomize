@@ -9,6 +9,25 @@ chrome.action.onClicked.addListener(async tab => {
   }
 })
 
+chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
+  const { action } = request
+
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
+  const url = tab?.url || ''
+  const playlistId = url.split('?list=')[1]
+
+  switch (action) {
+    case 'open-ytpyzer':
+      console.log('Opening YTPyzer...')
+      console.log('playlistId: ', playlistId)
+
+      chrome.tabs.create({
+        url: `https://ytpyzer.netlify.app?list=${playlistId}`,
+      })
+      break
+  }
+})
+
 // // let intervalId = null
 
 // chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
