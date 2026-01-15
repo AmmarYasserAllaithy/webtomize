@@ -102,6 +102,11 @@ article {
   }
 }
 
+#ytpyzer {
+  --color: #fff;
+  --bg: #70a0c8;
+}
+
 #poe {
   --color: #fff;
   --bg: #181818;
