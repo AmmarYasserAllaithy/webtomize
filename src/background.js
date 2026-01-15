@@ -14,16 +14,16 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
 
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
   const url = tab?.url || ''
-  const playlistId = url.split('?list=')[1]
 
   switch (action) {
     case 'open-ytpyzer':
-      console.log('Opening YTPyzer...')
-      console.log('playlistId: ', playlistId)
+      const playlistId = url.split('?list=')[1]
 
-      chrome.tabs.create({
-        url: `https://ytpyzer.netlify.app?list=${playlistId}`,
-      })
+      if (playlistId)
+        chrome.tabs.create({
+          url: `https://ytpyzer.netlify.app?list=${playlistId}`,
+        })
+
       break
   }
 })
