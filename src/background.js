@@ -31,7 +31,7 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
 })
 
 function handleYTPyzer(url) {
-  const playlistId = url.split('?list=')[1]
+  const playlistId = getQueryParam(url, 'list')
 
   if (playlistId)
     chrome.tabs.create({
@@ -40,7 +40,7 @@ function handleYTPyzer(url) {
 }
 
 function handleSearchGoogle(url, tabId) {
-  const query = url.split('q=')[1]
+  const query = getQueryParam(url, 'q')
 
   if (query)
     chrome.tabs.update(tabId, {
@@ -49,12 +49,21 @@ function handleSearchGoogle(url, tabId) {
 }
 
 function handleSearchBrave(url, tabId) {
-  const query = url.split('q=')[1]
+  const query = getQueryParam(url, 'q')
 
   if (query)
     chrome.tabs.update(tabId, {
       url: `https://search.brave.com/search?q=${query}`,
     })
+}
+
+function getQueryParam(urlString, param) {
+  try {
+    const url = new URL(urlString)
+    return url.searchParams.get(param)
+  } catch (e) {
+    return null
+  }
 }
 
 // // let intervalId = null
