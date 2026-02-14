@@ -19,6 +19,14 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     case 'open-ytpyzer':
       handleYTPyzer(url)
       break
+
+    case 'search-google':
+      handleSearchGoogle(url, tab.id)
+      break
+
+    case 'search-brave':
+      handleSearchBrave(url, tab.id)
+      break
   }
 })
 
@@ -28,6 +36,24 @@ function handleYTPyzer(url) {
   if (playlistId)
     chrome.tabs.create({
       url: `https://ytpyzer.netlify.app?list=${playlistId}`,
+    })
+}
+
+function handleSearchGoogle(url, tabId) {
+  const query = url.split('q=')[1]
+
+  if (query)
+    chrome.tabs.update(tabId, {
+      url: `https://www.google.com/search?q=${query}`,
+    })
+}
+
+function handleSearchBrave(url, tabId) {
+  const query = url.split('q=')[1]
+
+  if (query)
+    chrome.tabs.update(tabId, {
+      url: `https://search.brave.com/search?q=${query}`,
     })
 }
 
