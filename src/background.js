@@ -17,16 +17,19 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
 
   switch (action) {
     case 'open-ytpyzer':
-      const playlistId = url.split('?list=')[1]
-
-      if (playlistId)
-        chrome.tabs.create({
-          url: `https://ytpyzer.netlify.app?list=${playlistId}`,
-        })
-
+      handleYTPyzer(url)
       break
   }
 })
+
+function handleYTPyzer(url) {
+  const playlistId = url.split('?list=')[1]
+
+  if (playlistId)
+    chrome.tabs.create({
+      url: `https://ytpyzer.netlify.app?list=${playlistId}`,
+    })
+}
 
 // // let intervalId = null
 
