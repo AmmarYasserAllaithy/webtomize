@@ -196,4 +196,16 @@ claude.ai {
   .font-claude-response-body {
     font-family: Ubuntu, Poppins, 'IBM Plex Sans Arabic' !important;
   }
+
+  * {
+    --font-claude-response: var(--font-ui);
+  }
+
+  div[data-testid='chat-column'].mx-auto {
+    max-width: none;
+  }
+
+  div[data-testid='transcript-list'].mx-auto {
+    max-width: 60rem;
+  }
 }
